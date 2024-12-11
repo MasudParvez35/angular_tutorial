@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-4">
+        on way from .ts to .thml
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <div class="row">
+            <div class="col-4 bg-warning">
+                interpolation
+                <h4>{{courseName}}</h4>
+                <input type="text" value="{{courseName}}" placeholder="Enter text"/>
+                <input type="{{inputType}}"/>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 bg-danger">
+        Property Binding
+        <div [class]="myClassName">Primary</div>
+        <input type="text" [value] = "courseName"/>
+        <input [type] = "inputType"/>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-success" (click)="showAlert('Welcome Angular 18')">Show Welcome</button>
+        <span (click) ="showAlert('this is span')">Click me</span>
+        <button class="btn btn-success" (click) = "changeCourseName()">Change course</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <input type="text" [(ngModel)]="courseName"/> - {{courseName}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <input type="checkbox" [(ngModel)]="isDisabled"/>
+        <select [(ngModel)]="stateName">
+            <option value="">Select</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Khulna">Khulna</option>
+            <option value="Rangpur">Rangpur</option>
+        </select>
+    </div>
+</div>
