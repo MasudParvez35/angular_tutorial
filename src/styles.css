@@ -1,4 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
-p {
-    color: blue;
+nav ul {
+  list-style: none; /* Remove bullets from the list */
+  padding: 0;
+  display: flex; /* Arrange items in a row */
+  gap: 10px; /* Add space between items */
+}
+
+nav li {
+  display: inline; /* Ensure each list item behaves inline */
+}
+
+nav a {
+  text-decoration: none; /* Remove underline from links */
+  padding: 5px 10px; /* Add padding for clickable area */
+  border: 1px solid #ddd; /* Light border for visual separation */
+  border-radius: 5px; /* Rounded corners for links */
+  color: #007bff; /* Default link color */
+}
+
+nav a:hover {
+  background-color: #f0f0f0; /* Change background on hover */
+}
+
+nav .active-link {
+  font-weight: bold; /* Bold text for active links */
+  color: #0056b3; /* Darker color for active links */
 }

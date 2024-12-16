@@ -1,14 +1,14 @@
 <h1>Welcome, {{ title }}</h1>
 <p>Congratulations! Your app is running. 🎉</p>
 
-<div>
-    <app-add-employee></app-add-employee>
-</div>
+<!-- Navigation Bar -->
+<nav>
+  <ul>
+    <li><a routerLink="/emp-list" routerLinkActive="active-link">Employee List</a></li>
+    <li><a routerLink="/add-emp" routerLinkActive="active-link">Add Employee</a></li>
+    <li><a routerLink="/data-binding" routerLinkActive="active-link">Data Binding</a></li>
+  </ul>
+</nav>
 
-<div>
-    <app-data-binding></app-data-binding>
-</div>
-
-<div>
-    <app-employee-list></app-employee-list>
-</div>
+<!-- Router Outlet -->
+<router-outlet></router-outlet>
