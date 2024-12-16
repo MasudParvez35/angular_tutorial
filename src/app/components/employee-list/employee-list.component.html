@@ -1,1 +1,13 @@
-<p>employee-list works!</p>
+
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<div *ngIf="students.length > 0">
+  <h2>Student List</h2>
+  <ul>
+    <li *ngFor="let student of students">
+      {{ student.name }} - {{ student.age }} years old
+    </li>
+  </ul>
+</div>
+<div *ngIf="students.length ==0">
+  <p>No students available.</p>
+</div>
