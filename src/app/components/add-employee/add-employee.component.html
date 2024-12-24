@@ -1,1 +1,41 @@
 <p>add-employee works!</p>
+<div class="row pt-3">
+    <div class="col-3">
+        @if (div1) {
+            <div class="p3 bg-success">
+                <h4>Div 1</h4>
+            </div>
+        }
+        @if (div2) {
+            <div class="p3 bg-warning">
+                <h4>Div 2</h4>
+            </div>
+        }
+
+        @if (num1 == num2) {
+            <div class="p3 bg-info">
+                <h4>Numbers are equal</h4>
+            </div>
+        }
+        @if (num1 != num2) {
+            <div class="p3 bg-danger">
+                <h4>Numbers are not equal</h4>
+            </div>
+        }
+        
+    </div>
+    
+    <div class="row pt-3">
+        <div class="col-3 text-center">
+            <button class="btn btn-danger" (click) = "hideDiv1()">div1</button>
+            <button class="btn btn-primary mx-2" (click) = "hideDiv2()">div2</button>
+        </div>
+
+        <div class="col-3">
+            <div style="display: flex; align-items: center;">
+                <input type="text" [(ngModel)]="num1" placeholder="num-1" class="width-50">
+                <input type="text" [(ngModel)]="num2" placeholder="num-2" class="width-50">
+            </div>
+        </div>
+    </div>
+</div>
