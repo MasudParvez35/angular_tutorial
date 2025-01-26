@@ -1,24 +1,45 @@
 <div class="employee-details-container">
-    <!-- Error Message -->
-    <div *ngIf="errorMessage" class="error-message">
-      {{ errorMessage }}
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Employee Details -->
+  <div *ngIf="employee" class="employee-card">
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 200 200"
+    width="150"
+    height="150"
+    role="img"
+    aria-labelledby="title"
+  >
+    <title>Boy Placeholder Image</title>
+    <circle cx="100" cy="100" r="100" fill="#f0f0f0" />
+    <circle cx="100" cy="70" r="40" fill="#f9c9b6" />
+    <ellipse cx="100" cy="110" rx="50" ry="70" fill="#8ecae6" />
+    <rect x="70" y="135" width="60" height="20" fill="#219ebc" />
+    <circle cx="85" cy="65" r="5" fill="#000" />
+    <circle cx="115" cy="65" r="5" fill="#000" />
+    <path
+      d="M90,80 Q100,95 110,80"
+      stroke="#000"
+      stroke-width="2"
+      fill="none"
+    />
+</svg>
+
+    <div class="employee-info">
+      <h2>{{ employee.name }}</h2>
+      <p><strong>ID:</strong> {{ employee.id }}</p>
+      <p><strong>Gender:</strong> {{ employee.gender }}</p>
+      <p><strong>Age:</strong> {{ employee.age }} years</p>
     </div>
-  
-    <!-- Employee Details -->
-    <div *ngIf="employee" class="employee-card">
-      <img
-        class="employee-image"
-        src="https://via.placeholder.com/150"
-        alt="Employee image"
-      />
-      <div class="employee-info">
-        <h2>{{ employee.name }}</h2>
-        <p><strong>ID:</strong> {{ employee.id }}</p>
-        <p><strong>Gender:</strong> {{ employee.gender }}</p>
-        <p><strong>Age:</strong> {{ employee.age }} years</p>
-      </div>
-      <!-- <button class="back-button" (click)="goBack()">Back to List</button> -->
+
+    <!-- Button Container for Back and Delete buttons -->
+    <div class="button-container">
       <button class="back-button" [routerLink]="'/emp-list'">Back to List</button>
+      <button class="delete-button" (click)="deleteEmployee(employee.id)">Delete</button>
     </div>
   </div>
-  
+</div>

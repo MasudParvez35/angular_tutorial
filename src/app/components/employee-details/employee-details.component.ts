@@ -15,8 +15,13 @@ export class EmployeeDetailsComponent implements OnInit {
   employee: any = null;
   errorMessage: string = '';
   private employeeDetailsUrl = 'https://localhost:7155/api/Employee/GetEmployeeById';
+  private deleteEmployeeUrl = 'https://localhost:7155/api/Employee/DeleteEmployee';
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private http: HttpClient, 
+    private route: ActivatedRoute, 
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     // Retrieve the 'id' parameter from the route
@@ -41,6 +46,21 @@ export class EmployeeDetailsComponent implements OnInit {
 
   getEmployeeById(id: number): Observable<any> {
     return this.http.get<any>(`${this.employeeDetailsUrl}/${id}`);
+  }
+
+  deleteEmployee(id: number): void {
+    if (confirm('Are you sure you want to delete this employee?')) {
+      this.http.delete(`${this.deleteEmployeeUrl}/${id}`).subscribe(
+        () => {
+          alert('Employee deleted successfully.');
+          this.router.navigate(['/emp-list']); // Redirect to employee list after successful deletion
+        },
+        (error) => {
+          console.error('Error deleting employee:', error);
+          alert('Failed to delete employee.');
+        }
+      );
+    }
   }
 
   goBack(): void {

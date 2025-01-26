@@ -11,6 +11,7 @@
         <div class="card-body">
           <p class="card-text">ID: {{ employee.id }}</p>
           <h5 class="card-title">{{ employee.name }}</h5>
+          <h6 class="card-title">{{ employee.gender }}</h6>
           <p class="card-text">{{ employee.age }} years old</p>
           <!-- <button class="btn btn-primary" (click)="viewDetails(employee.id)">View Details</button> -->
           <button class="btn btn-primary" [routerLink]="['/emp-details', employee.id]">View Details</button>
