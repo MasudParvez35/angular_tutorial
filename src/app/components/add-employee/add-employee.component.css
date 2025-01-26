@@ -1,3 +1,14 @@
-/* p {
-    color: red;
-} */
+.employee-form { 
+width: 50%; 
+margin: 0 auto; 
+} 
+.gender-options { 
+display: flex; 
+align-items: center; 
+} 
+.gender-options label { 
+margin-right: 15px; 
+}
+.btn-add-employee {
+margin-top: 20px;
+}

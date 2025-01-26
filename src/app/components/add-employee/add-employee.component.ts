@@ -1,33 +1,41 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
+import { HttpClientModule } from '@angular/common/http'; 
+import { EmployeeService } from '../../services/employee.service';
+import { Employee } from '../../models/employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule, HttpClientModule], 
   templateUrl: './add-employee.component.html',
-  styleUrl: './add-employee.component.css'
+  styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent {
-  visiable : boolean = true;
-  div1 : boolean = true;
-  div2 : boolean = true;
-  num1: string = '';
-  num2: string = '';
+  employee: Employee = {
+    id: 0,
+    name: '',
+    gender: '',
+    age: 0
+  };
 
-  showDiv1() {
-    this.visiable = true;
-  }
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router
+  ) {}
 
-  showDiv2() {
-    this.visiable = false;
-  }
-
-  hideDiv1() {
-    this.div1 = true;
-    this.div2 = false;
-  }
-  hideDiv2() {
-    this.div1 = false;
-    this.div2 = true;
+  onSubmit() {
+    this.employeeService.addEmployee(this.employee).subscribe(
+      (response) => {
+        console.log('Employee added successfully', response);
+        alert('Employee added successfully!');
+        this.router.navigate(['/emp-list']);
+      },
+      (error) => {
+        console.error('Error:', error);
+        alert('Failed to add employee.');
+      }
+    );
   }
 }

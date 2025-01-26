@@ -29,4 +29,28 @@ export class DataBindingComponent {
     alert(message);
     //this.courseName = 'React';
   }
+
+
+  visiable : boolean = true;
+  div1 : boolean = true;
+  div2 : boolean = true;
+  num1: string = '';
+  num2: string = '';
+
+  showDiv1() {
+    this.visiable = true;
+  }
+
+  showDiv2() {
+    this.visiable = false;
+  }
+
+  hideDiv1() {
+    this.div1 = true;
+    this.div2 = false;
+  }
+  hideDiv2() {
+    this.div1 = false;
+    this.div2 = true;
+  }
 }
